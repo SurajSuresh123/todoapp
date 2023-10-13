@@ -1,0 +1,18 @@
+{%if request.user.is_authenticated%}
+<p>{{request.user}}</p>
+<a href="{%url 'logoutUser'%}">Logout</a>
+{%endif%}
+<hr>
+<h1>To Do</h1>
+<a href="{%url 'createTask' %}">Add Task</a>
+<hr>
+<a href="{%url 'completedTasks' %}">Completed List</a>
+<a href="{%url 'pendingTasks' %}">Pending List</a>
+<a href="{%url 'expiredTasks' %}">Expired List</a>
+{%for task in tasks%}
+  <p>{{task}}</p>
+  <p>{{task.tocompleted_date}}</p>
+  <span>Created at:{{task.created}}</span>
+  <a href="{%url 'updateTask' task.id%}">Update</a>
+  <a href="{%url 'deleteTask' task.id%}">Delete</a>
+{%endfor%}

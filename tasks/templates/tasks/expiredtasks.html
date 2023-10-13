@@ -1,0 +1,7 @@
+<h2>Expired List</h2>
+{%for task in expired%}
+  <p>{{task}}</p>
+  <p>{{task.tocompleted_date}}</p>
+  <a href="{%url 'updateTask' task.id%}">Update</a>
+  <a href="{%url 'deleteTask' task.id%}">Delete</a>
+{%endfor%}

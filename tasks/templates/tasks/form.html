@@ -1,0 +1,28 @@
+<H1>Create a new Task</H1>
+
+<form method="POST">
+  {%csrf_token%}
+  <label>Task:</label>
+  <input type="text" id="task" name="task" class="todo-task">
+  <label for="">Date of Completion</label>
+  <input type="date" id="tocomplete_date" name="tocomplete_date" class="todo-date">
+  <label>Completed</label><input type="checkbox" id='completed' name="completed" value="true">
+  <button type='submit' onclick="return validate()">Submit</button>
+</form>
+<script>
+  function validate()
+  {
+
+    task=document.querySelector('.todo-task').value
+    console.log(task)
+    date=document.querySelector('.todo-date').value
+    console.log(date)
+    if (task==='' || task.length >200 || !date)
+    {
+      alert('Enter vaild details')
+      return false
+    }
+    return true
+  }
+
+</script>

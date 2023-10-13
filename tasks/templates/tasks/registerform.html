@@ -1,0 +1,24 @@
+<h2>Register</h2>
+<form method='POST'>
+  {%csrf_token%}
+  
+  {{form.username.label}}
+  {{form.username}}
+
+  {{form.email.label}}
+  {{form.email}}
+
+  {{form.password1.label}}
+  {{form.password1}}
+  {{form.password2.label}}
+  {{form.password2}}
+  <button type="submit">CreateUser</button>
+
+  
+  
+</form>
+{% for message in messages %}
+    <div class="alert alert-{{ message.tags }}">
+        {{ message }}
+    </div>
+    {% endfor %}
