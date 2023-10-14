@@ -94,7 +94,7 @@ def pendingTasks(request):
   if request.user.is_authenticated:  
     pending=Tasks.objects.filter(user=request.user,completed=False)
   context={'pending':pending}
-  return render(request,'tasks/pendingTasks.html',context)
+  return render(request,'tasks/pendingtasks.html',context)
 
 @login_required(login_url='loginUser')
 def expiredTasks(request):
@@ -102,4 +102,4 @@ def expiredTasks(request):
     current_date=timezone.now().date()  
     expired=Tasks.objects.filter(user=request.user,tocompleted_date__lt=current_date)
   context={'expired':expired}
-  return render(request,'tasks/expiredTasks.html',context)
+  return render(request,'tasks/expiredtasks.html',context)
