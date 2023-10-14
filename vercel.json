@@ -3,7 +3,18 @@
       "src": "todoapp/wsgi.py",
       "use": "@vercel/python",
       "config": { "maxLambdaSize": "15mb", "runtime": "python3.11.4" }
-  }],
+      
+      },
+      {
+        "src":"buildscript.sh",
+        "use":"@vercel/static-build",
+        "config":{
+          "distDir":"staticfiles"
+        }
+
+
+      }
+  ],
   "routes": [
       {
           "src": "/(.*)",
