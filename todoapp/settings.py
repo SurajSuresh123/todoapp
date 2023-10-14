@@ -12,8 +12,6 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
-import dj_database_url
-from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -81,14 +79,14 @@ WSGI_APPLICATION = 'todoapp.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'todolist',
-        'USER':'test_user',
-        'PASSWORD':'suraj@2002',
-        'HOST':'localhost',
-        'PORT':'5432',
+        'NAME': os.environ.get("POSTGRES_DATABASE"),
+        'USER':os.environ.get("POSTGRES_USER"),
+        'PASSWORD':os.environ.get("POSTGRES_PASSWORD"),
+        'HOST':os.environ.get("POSTGRES_HOST"),
+        'PORT':os.environ.get("DB_POST"),
     }
 }
-DATABASES['default']=dj_database_url.config()
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
