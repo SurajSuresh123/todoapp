@@ -81,11 +81,11 @@ WSGI_APPLICATION = 'todoapp.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'railway',
-        'USER':'postgres',
-        'PASSWORD':'qli8JVVab6f0FSVHpb7x',
-        'HOST':'containers-us-west-52.railway.appt',
-        'PORT':'6636',
+        'NAME': 'todolist',
+        'USER':'test_user',
+        'PASSWORD':'suraj@2002',
+        'HOST':'localhost',
+        'PORT':'5432',
     }
 }
 DATABASES['default']=dj_database_url.config()
